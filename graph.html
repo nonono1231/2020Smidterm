@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>그래프</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<style>
+.g_box {position: absolute; top:50%; left:50%; width : 85%; height : 85%;
+		border : 2px solid black; transform: translate(-50%, -50%)}
+#headnumb {position: absolute; top:1%; left:50%; width : 200px; margin-left : -100px}
+.g_box2 {position: absolute; top:10%; left:50%; width : 600px;  margin-left : -300px}
+.g_box3 {position: absolute; top:55%; left:50%; width : 750px;  margin-left : -375px}
+#buttong1 {position: absolute; top:93%; left:42%; width : 100px; margin-left : -50px}
+#buttong2 {position: absolute; top:93%; left:58%; width : 100px; margin-left : -50px}
+</style>
+</head>
+<body>
+<div><div class="g_box">
+<p id = "headnumb"></p><br>
+<div class="g_box2">
+<canvas id="barChart"width="600" height="300"></canvas><br><br>
+</div>
+<div class="g_box3">
+<table><tr>
+<td><canvas id="pieChart1"width="150" height="150"></canvas></td>
+<td><canvas id="pieChart2"width="150" height="150"></canvas></td>
+<td><canvas id="pieChart3"width="150" height="150"></canvas></td>
+<td><canvas id="pieChart4"width="150" height="150"></canvas></td>
+<td><canvas id="pieChart5"width="150" height="150"></canvas></td>
+</tr></table>
+</div>
+<button type="button" id="buttong1" onclick="location.href='view.html'">표로 보기</button>
+<button type="button" id="buttong2" onclick="location.href='index.html'">돌아가기</button>
+</div></div>
+<script>
+var q1 = JSON.parse(localStorage.getItem("q1"));
+var q2 = JSON.parse(localStorage.getItem("q2"));
+var q3 = JSON.parse(localStorage.getItem("q3"));
+var q4 = JSON.parse(localStorage.getItem("q4"));
+var q5 = JSON.parse(localStorage.getItem("q5"));
+
+var q1sum = 0;
+var q2sum = 0;
+var q3sum = 0;
+var q4sum = 0;
+var q5sum = 0;
+
+for (i=0;i<q1.length; i++){
+	q1[i]*=1;
+	q2[i]*=1;
+	q3[i]*=1;
+	q4[i]*=1;
+	q5[i]*=1;
+	q1sum += q1[i];
+	q2sum += q2[i];
+	q3sum += q3[i];
+	q4sum += q4[i];
+	q5sum += q5[i];
+}
+var q11 = 0, q12 = 0, q13 = 0, q14 = 0, q15 = 0;
+var q21 = 0, q22 = 0, q23 = 0, q24 = 0, q25 = 0;
+var q31 = 0, q32 = 0, q33 = 0, q34 = 0, q35 = 0;
+var q41 = 0, q42 = 0, q43 = 0, q44 = 0, q45 = 0;
+var q51 = 0, q52 = 0, q53 = 0, q54 = 0, q55 = 0;
+
+for (i=0;i<q1.length; i++){
+	if (q1[i] == "1") {q11++;}
+	if (q1[i] == "2") {q12++;}
+	if (q1[i] == "3") {q13++;}
+	if (q1[i] == "4") {q14++;}
+	if (q1[i] == "5") {q15++;}
+	if (q2[i] == "1") {q21++;}
+	if (q2[i] == "2") {q22++;}
+	if (q2[i] == "3") {q23++;}
+	if (q2[i] == "4") {q24++;}
+	if (q2[i] == "5") {q25++;}
+	if (q3[i] == "1") {q31++;}
+	if (q3[i] == "2") {q32++;}
+	if (q3[i] == "3") {q33++;}
+	if (q3[i] == "4") {q34++;}
+	if (q3[i] == "5") {q35++;}
+	if (q4[i] == "1") {q41++;}
+	if (q4[i] == "2") {q42++;}
+	if (q4[i] == "3") {q43++;}
+	if (q4[i] == "4") {q44++;}
+	if (q4[i] == "5") {q45++;}
+	if (q5[i] == "1") {q51++;}
+	if (q5[i] == "2") {q52++;}
+	if (q5[i] == "3") {q53++;}
+	if (q5[i] == "4") {q54++;}
+	if (q5[i] == "5") {q55++;}
+	}
+
+var q1ave = parseFloat(q1sum/q1.length).toFixed(2);
+var q2ave = parseFloat(q2sum/q2.length).toFixed(2);
+var q3ave = parseFloat(q3sum/q3.length).toFixed(2);
+var q4ave = parseFloat(q4sum/q4.length).toFixed(2);
+var q5ave = parseFloat(q5sum/q5.length).toFixed(2);
+
+var headnum = document.getElementById("headnumb");
+headnum.innerText = "전체 설문자 수 : " + q1.length + "명";
+
+var bC = document.getElementById('barChart').getContext('2d');
+var chart = new Chart(bC, {
+    type: 'bar',
+    data: {
+        labels: ['시설', '등록금', '교육과정', '성적평가', '비대면강의'],
+        datasets: [{
+            backgroundColor: 'rgba(180, 180, 180, 0.7)',
+            data: [q1ave, q2ave, q3ave, q4ave, q5ave]
+        }]
+    },
+    options: {
+        responsive: false,
+        title: {
+            display: true,
+            text: '평균 만족도'
+        },
+        legend: {
+            display: false,
+        },
+              
+        scales: {
+            xAxes: [{
+                display: true,
+               ticks: {
+                    autoSkip: false
+                }
+            }],
+            yAxes: [{
+                display: true,
+                ticks: {
+                    suggestedMin: 0,
+                    suggestedMax: 5
+                },
+                
+            }]
+        }
+    }
+});
+
+var pC1 = document.getElementById('pieChart1').getContext('2d');
+var chart = new Chart(pC1, {
+    type: 'doughnut',
+    data: {
+        labels: ['매우 불만족', '불만족', '보통', '만족', '매우 만족'],
+        datasets: [{
+            backgroundColor: [
+            	'rgba(255, 0, 0, 0.7)',
+            	'rgba(255, 170, 0, 0.7)',
+            	'rgba(255, 255, 0, 0.7)',
+            	'rgba(0, 255, 0, 0.7)',
+            	'rgba(0, 0, 255, 0.7)'  
+            	],
+            data: [q11, q12, q13, q14, q15]
+        }]
+    },
+    options: {
+        responsive: false,
+        title: {
+            display: true,
+            text: '시설 만족도'
+        },
+    legend: {
+        display: false,
+    }
+        
+    }
+});
+
+var pC2 = document.getElementById('pieChart2').getContext('2d');
+var chart = new Chart(pC2, {
+    type: 'doughnut',
+    data: {
+        labels: ['매우 불만족', '불만족', '보통', '만족', '매우 만족'],
+        datasets: [{
+            backgroundColor: [
+            	'rgba(255, 0, 0, 0.7)',
+            	'rgba(255, 170, 0, 0.7)',
+            	'rgba(255, 255, 0, 0.7)',
+            	'rgba(0, 255, 0, 0.7)',
+            	'rgba(0, 0, 255, 0.7)'  
+            	],
+            data: [q21, q22, q23, q24, q25]
+        }]
+    },
+    options: {
+        responsive: false,
+        title: {
+            display: true,
+            text: '등록금 만족도'
+        },
+    legend: {
+        display: false,
+    }
+        
+    }
+});
+
+var pC3 = document.getElementById('pieChart3').getContext('2d');
+var chart = new Chart(pC3, {
+    type: 'doughnut',
+    data: {
+        labels: ['매우 불만족', '불만족', '보통', '만족', '매우 만족'],
+        datasets: [{
+            backgroundColor: [
+            	'rgba(255, 0, 0, 0.7)',
+            	'rgba(255, 170, 0, 0.7)',
+            	'rgba(255, 255, 0, 0.7)',
+            	'rgba(0, 255, 0, 0.7)',
+            	'rgba(0, 0, 255, 0.7)'  
+            	],
+            data: [q31, q32, q33, q34, q35]
+        }]
+    },
+    options: {
+        responsive: false,
+        title: {
+            display: true,
+            text: '교육과정 만족도'
+        },
+    legend: {
+        display: false,
+    }
+        
+    }
+});
+
+var pC4 = document.getElementById('pieChart4').getContext('2d');
+var chart = new Chart(pC4, {
+    type: 'doughnut',
+    data: {
+        labels: ['매우 불만족', '불만족', '보통', '만족', '매우 만족'],
+        datasets: [{
+            backgroundColor: [
+            	'rgba(255, 0, 0, 0.7)',
+            	'rgba(255, 170, 0, 0.7)',
+            	'rgba(255, 255, 0, 0.7)',
+            	'rgba(0, 255, 0, 0.7)',
+            	'rgba(0, 0, 255, 0.7)'  
+            	],
+            data: [q41, q42, q43, q44, q45]
+        }]
+    },
+    options: {
+        responsive: false,
+        title: {
+            display: true,
+            text: '성적평가 만족도'
+        },
+    legend: {
+        display: false,
+    }
+        
+    }
+});
+
+var pC5 = document.getElementById('pieChart5').getContext('2d');
+var chart = new Chart(pC5, {
+    type: 'doughnut',
+    data: {
+        labels: ['매우 불만족', '불만족', '보통', '만족', '매우 만족'],
+        datasets: [{
+            backgroundColor: [
+            	'rgba(255, 0, 0, 0.7)',
+            	'rgba(255, 170, 0, 0.7)',
+            	'rgba(255, 255, 0, 0.7)',
+            	'rgba(0, 255, 0, 0.7)',
+            	'rgba(0, 0, 255, 0.7)'  
+            	],
+            data: [q51, q52, q53, q54, q55]
+        }]
+    },
+    options: {
+        responsive: false,
+        title: {
+            display: true,
+            text: '비대면강의 만족도'
+        },
+    legend: {
+        display: false,
+    }
+        
+    }
+});
+
+</script>
+</body>
+</html>

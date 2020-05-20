@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>만족도 조사</title>
+<style>
+.i_box {position: absolute; top:50%; left:50%; width : 50%; height : 50%;
+		border : 2px solid black; transform: translate(-50%, -50%)}
+.i_box2 {position: absolute; top:55%; left:50%; width : 500px; margin-left : -250px}
+#button1 {position: absolute; top:50%; left:30%; width : 90px; margin-left : -45px}
+#button2 {position: absolute; top:50%; left:50%; width : 90px; margin-left : -45px}
+#button3 {position: absolute; top:50%; left:70%; width : 90px; margin-left : -45px}
+#head1 {position: absolute; top:35%; left:50%; text-align: center; width: 500px; margin-left : -250px}
+
+</style>
+</head>
+<body>
+<div>
+<div class="i_box">
+<h1 id="head1">경북대학교 만족도 조사</h1>
+<div class="i_box2">
+<button type="button" id="button1" onclick="location.href='start.html'">설문 시작</button>
+<button type="button" id="button2" onclick="checkArr();">결과 보기</button>
+<button type="button" id="button3" onclick="clearArr();">설문 초기화</button>
+</div></div></div>
+
+<script>
+function clearArr(){
+	
+	password=prompt('모든 응답을 제거하려면 비밀번호를 입력하세요.');
+	if(password==='1234') {
+		localStorage.clear();
+		alert("저장된 응답이 모두 삭제되었습니다.");
+	}
+	else if(password===null){}
+	else{alert("비밀번호가 틀립니다.");		
+	}
+	location.href="index.html";
+}
+
+function checkArr(){
+	if(localStorage.getItem("q1")==null){
+		alert("제출된 설문 응답이 없습니다.");
+		location.href="index.html"
+		}else{location.href="view.html";}
+}
+</script>
+</body>
+</html>

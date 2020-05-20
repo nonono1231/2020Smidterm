@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>설문 결과 보기</title>
+<style>
+table{border-collapse: collapse; border-top: 3px solid #168; border-left: 3px solid #168; text-align: center;}
+th{color: #168; background: #f0f6f9;}
+th, td{padding: 5px; border: 1px solid #ddd; width : 80px;}
+
+
+.v_box {position: absolute; top:50%; left:50%; width : 85%; height : 85%;
+		border : 2px solid black; transform: translate(-50%, -50%)}
+.v_box2 {position: absolute; top:1%; left:50%; width : 500px; margin-left : -240px}
+.v_box3 {position: absolute; top:8%; left:50%; width : 600px; height: 80%; margin-left : -285px; overflow:auto}
+#buttonv1 {position: absolute; top:93%; left:42%; width : 100px; margin-left : -50px}
+#buttonv2 {position: absolute; top:93%; left:58%; width : 100px; margin-left : -50px}
+</style>
+</head>
+<body>
+<div><div class='v_box'>
+<script>
+var q1 = JSON.parse(localStorage.getItem("q1"));
+var q2 = JSON.parse(localStorage.getItem("q2"));
+var q3 = JSON.parse(localStorage.getItem("q3"));
+var q4 = JSON.parse(localStorage.getItem("q4"));
+var q5 = JSON.parse(localStorage.getItem("q5"));
+
+var q1sum = 0;
+var q2sum = 0;
+var q3sum = 0;
+var q4sum = 0;
+var q5sum = 0;
+
+for (i=0;i<q1.length; i++){
+	q1[i]*=1;
+	q2[i]*=1;
+	q3[i]*=1;
+	q4[i]*=1;
+	q5[i]*=1;
+	q1sum += q1[i];
+	q2sum += q2[i];
+	q3sum += q3[i];
+	q4sum += q4[i];
+	q5sum += q5[i];
+}
+
+var q1ave = parseFloat(q1sum/q1.length).toFixed(2);
+var q2ave = parseFloat(q2sum/q2.length).toFixed(2);
+var q3ave = parseFloat(q3sum/q3.length).toFixed(2);
+var q4ave = parseFloat(q4sum/q4.length).toFixed(2);
+var q5ave = parseFloat(q5sum/q5.length).toFixed(2);
+
+document.write("<div class='v_box2'><p>1 : 매우 불만족, &nbsp;&nbsp;2 : 불만족, &nbsp;&nbsp;3 : 보통, &nbsp;&nbsp;4 : 만족, &nbsp;&nbsp;5 : 매우 만족</p></div>");
+document.write("<div class='v_box3'><table><tr><th></th>");
+	document.write("<th>시설</th>");
+	document.write("<th>등록금</th>");
+	document.write("<th>교육과정</th>");
+	document.write("<th>성적평가</th>");
+	document.write("<th>비대면강의</th>");
+
+document.write("</tr>");
+for(i=1;i<=q1.length;i++){
+	document.write("<tr><th>User"+i+"</th>");
+	document.write("<td>"+q1[i-1]+"</td>");
+	document.write("<td>"+q2[i-1]+"</td>");
+	document.write("<td>"+q3[i-1]+"</td>");
+	document.write("<td>"+q4[i-1]+"</td>");
+	document.write("<td>"+q5[i-1]+"</td>");
+	document.write("</tr>");
+}
+document.write("<tr><td><b>평균</b></td>");
+document.write("<td>"+q1ave+"</td>");
+document.write("<td>"+q2ave+"</td>");
+document.write("<td>"+q3ave+"</td>");
+document.write("<td>"+q4ave+"</td>");
+document.write("<td>"+q5ave+"</td>");
+document.write("</tr>");
+document.write("</table></div>");
+
+</script>
+<button type="button" id="buttonv1" onclick="location.href='graph.html'">그래프로 보기</button>
+<button type="button" id="buttonv2" onclick="location.href='index.html'">돌아가기</button> </div></div>
+</body>
+</html>
