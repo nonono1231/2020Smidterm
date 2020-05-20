@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>±×·¡ÇÁ</title>
+<meta charset="UTF-8">
+<title>ê·¸ë˜í”„</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <style>
 .g_box {position: absolute; top:50%; left:50%; width : 85%; height : 85%;
@@ -29,8 +29,8 @@
 <td><canvas id="pieChart5"width="150" height="150"></canvas></td>
 </tr></table>
 </div>
-<button type="button" id="buttong1" onclick="location.href='view.html'">Ç¥·Î º¸±â</button>
-<button type="button" id="buttong2" onclick="location.href='index.html'">µ¹¾Æ°¡±â</button>
+<button type="button" id="buttong1" onclick="location.href='view.html'">í‘œë¡œ ë³´ê¸°</button>
+<button type="button" id="buttong2" onclick="location.href='index.html'">ëŒì•„ê°€ê¸°</button>
 </div></div>
 <script>
 var q1 = JSON.parse(localStorage.getItem("q1"));
@@ -98,13 +98,13 @@ var q4ave = parseFloat(q4sum/q4.length).toFixed(2);
 var q5ave = parseFloat(q5sum/q5.length).toFixed(2);
 
 var headnum = document.getElementById("headnumb");
-headnum.innerText = "ÀüÃ¼ ¼³¹®ÀÚ ¼ö : " + q1.length + "¸í";
+headnum.innerText = "ì „ì²´ ì„¤ë¬¸ì ìˆ˜ : " + q1.length + "ëª…";
 
 var bC = document.getElementById('barChart').getContext('2d');
 var chart = new Chart(bC, {
     type: 'bar',
     data: {
-        labels: ['½Ã¼³', 'µî·Ï±İ', '±³À°°úÁ¤', '¼ºÀûÆò°¡', 'ºñ´ë¸é°­ÀÇ'],
+        labels: ['ì‹œì„¤', 'ë“±ë¡ê¸ˆ', 'êµìœ¡ê³¼ì •', 'ì„±ì í‰ê°€', 'ë¹„ëŒ€ë©´ê°•ì˜'],
         datasets: [{
             backgroundColor: 'rgba(180, 180, 180, 0.7)',
             data: [q1ave, q2ave, q3ave, q4ave, q5ave]
@@ -114,7 +114,7 @@ var chart = new Chart(bC, {
         responsive: false,
         title: {
             display: true,
-            text: 'Æò±Õ ¸¸Á·µµ'
+            text: 'í‰ê·  ë§Œì¡±ë„'
         },
         legend: {
             display: false,
@@ -143,7 +143,7 @@ var pC1 = document.getElementById('pieChart1').getContext('2d');
 var chart = new Chart(pC1, {
     type: 'doughnut',
     data: {
-        labels: ['¸Å¿ì ºÒ¸¸Á·', 'ºÒ¸¸Á·', 'º¸Åë', '¸¸Á·', '¸Å¿ì ¸¸Á·'],
+        labels: ['ë§¤ìš° ë¶ˆë§Œì¡±', 'ë¶ˆë§Œì¡±', 'ë³´í†µ', 'ë§Œì¡±', 'ë§¤ìš° ë§Œì¡±'],
         datasets: [{
             backgroundColor: [
             	'rgba(255, 0, 0, 0.7)',
@@ -159,7 +159,7 @@ var chart = new Chart(pC1, {
         responsive: false,
         title: {
             display: true,
-            text: '½Ã¼³ ¸¸Á·µµ'
+            text: 'ì‹œì„¤ ë§Œì¡±ë„'
         },
     legend: {
         display: false,
@@ -172,7 +172,7 @@ var pC2 = document.getElementById('pieChart2').getContext('2d');
 var chart = new Chart(pC2, {
     type: 'doughnut',
     data: {
-        labels: ['¸Å¿ì ºÒ¸¸Á·', 'ºÒ¸¸Á·', 'º¸Åë', '¸¸Á·', '¸Å¿ì ¸¸Á·'],
+        labels: ['ë§¤ìš° ë¶ˆë§Œì¡±', 'ë¶ˆë§Œì¡±', 'ë³´í†µ', 'ë§Œì¡±', 'ë§¤ìš° ë§Œì¡±'],
         datasets: [{
             backgroundColor: [
             	'rgba(255, 0, 0, 0.7)',
@@ -188,7 +188,7 @@ var chart = new Chart(pC2, {
         responsive: false,
         title: {
             display: true,
-            text: 'µî·Ï±İ ¸¸Á·µµ'
+            text: 'ë“±ë¡ê¸ˆ ë§Œì¡±ë„'
         },
     legend: {
         display: false,
@@ -201,7 +201,7 @@ var pC3 = document.getElementById('pieChart3').getContext('2d');
 var chart = new Chart(pC3, {
     type: 'doughnut',
     data: {
-        labels: ['¸Å¿ì ºÒ¸¸Á·', 'ºÒ¸¸Á·', 'º¸Åë', '¸¸Á·', '¸Å¿ì ¸¸Á·'],
+        labels: ['ë§¤ìš° ë¶ˆë§Œì¡±', 'ë¶ˆë§Œì¡±', 'ë³´í†µ', 'ë§Œì¡±', 'ë§¤ìš° ë§Œì¡±'],
         datasets: [{
             backgroundColor: [
             	'rgba(255, 0, 0, 0.7)',
@@ -217,7 +217,7 @@ var chart = new Chart(pC3, {
         responsive: false,
         title: {
             display: true,
-            text: '±³À°°úÁ¤ ¸¸Á·µµ'
+            text: 'êµìœ¡ê³¼ì • ë§Œì¡±ë„'
         },
     legend: {
         display: false,
@@ -230,7 +230,7 @@ var pC4 = document.getElementById('pieChart4').getContext('2d');
 var chart = new Chart(pC4, {
     type: 'doughnut',
     data: {
-        labels: ['¸Å¿ì ºÒ¸¸Á·', 'ºÒ¸¸Á·', 'º¸Åë', '¸¸Á·', '¸Å¿ì ¸¸Á·'],
+        labels: ['ë§¤ìš° ë¶ˆë§Œì¡±', 'ë¶ˆë§Œì¡±', 'ë³´í†µ', 'ë§Œì¡±', 'ë§¤ìš° ë§Œì¡±'],
         datasets: [{
             backgroundColor: [
             	'rgba(255, 0, 0, 0.7)',
@@ -246,7 +246,7 @@ var chart = new Chart(pC4, {
         responsive: false,
         title: {
             display: true,
-            text: '¼ºÀûÆò°¡ ¸¸Á·µµ'
+            text: 'ì„±ì í‰ê°€ ë§Œì¡±ë„'
         },
     legend: {
         display: false,
@@ -259,7 +259,7 @@ var pC5 = document.getElementById('pieChart5').getContext('2d');
 var chart = new Chart(pC5, {
     type: 'doughnut',
     data: {
-        labels: ['¸Å¿ì ºÒ¸¸Á·', 'ºÒ¸¸Á·', 'º¸Åë', '¸¸Á·', '¸Å¿ì ¸¸Á·'],
+        labels: ['ë§¤ìš° ë¶ˆë§Œì¡±', 'ë¶ˆë§Œì¡±', 'ë³´í†µ', 'ë§Œì¡±', 'ë§¤ìš° ë§Œì¡±'],
         datasets: [{
             backgroundColor: [
             	'rgba(255, 0, 0, 0.7)',
@@ -275,7 +275,7 @@ var chart = new Chart(pC5, {
         responsive: false,
         title: {
             display: true,
-            text: 'ºñ´ë¸é°­ÀÇ ¸¸Á·µµ'
+            text: 'ë¹„ëŒ€ë©´ê°•ì˜ ë§Œì¡±ë„'
         },
     legend: {
         display: false,
