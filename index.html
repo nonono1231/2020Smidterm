@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>¸¸Á·µµ Á¶»ç</title>
+<meta charset="UTF-8">
+<title>ë§Œì¡±ë„ ì¡°ì‚¬</title>
 <style>
 .i_box {position: absolute; top:50%; left:50%; width : 50%; height : 50%;
 		border : 2px solid black; transform: translate(-50%, -50%)}
@@ -17,30 +17,30 @@
 <body>
 <div>
 <div class="i_box">
-<h1 id="head1">°æºÏ´ëÇĞ±³ ¸¸Á·µµ Á¶»ç</h1>
+<h1 id="head1">ê²½ë¶ëŒ€í•™êµ ë§Œì¡±ë„ ì¡°ì‚¬</h1>
 <div class="i_box2">
-<button type="button" id="button1" onclick="location.href='start.html'">¼³¹® ½ÃÀÛ</button>
-<button type="button" id="button2" onclick="checkArr();">°á°ú º¸±â</button>
-<button type="button" id="button3" onclick="clearArr();">¼³¹® ÃÊ±âÈ­</button>
+<button type="button" id="button1" onclick="location.href='start.html'">ì„¤ë¬¸ ì‹œì‘</button>
+<button type="button" id="button2" onclick="checkArr();">ê²°ê³¼ ë³´ê¸°</button>
+<button type="button" id="button3" onclick="clearArr();">ì„¤ë¬¸ ì´ˆê¸°í™”</button>
 </div></div></div>
 
 <script>
 function clearArr(){
 	
-	password=prompt('¸ğµç ÀÀ´äÀ» Á¦°ÅÇÏ·Á¸é ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä.');
+	password=prompt('ëª¨ë“  ì‘ë‹µì„ ì œê±°í•˜ë ¤ë©´ ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”.');
 	if(password==='1234') {
 		localStorage.clear();
-		alert("ÀúÀåµÈ ÀÀ´äÀÌ ¸ğµÎ »èÁ¦µÇ¾ú½À´Ï´Ù.");
+		alert("ì €ì¥ëœ ì‘ë‹µì´ ëª¨ë‘ ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤.");
 	}
 	else if(password===null){}
-	else{alert("ºñ¹Ğ¹øÈ£°¡ Æ²¸³´Ï´Ù.");		
+	else{alert("ë¹„ë°€ë²ˆí˜¸ê°€ í‹€ë¦½ë‹ˆë‹¤.");		
 	}
 	location.href="index.html";
 }
 
 function checkArr(){
 	if(localStorage.getItem("q1")==null){
-		alert("Á¦ÃâµÈ ¼³¹® ÀÀ´äÀÌ ¾ø½À´Ï´Ù.");
+		alert("ì œì¶œëœ ì„¤ë¬¸ ì‘ë‹µì´ ì—†ìŠµë‹ˆë‹¤.");
 		location.href="index.html"
 		}else{location.href="view.html";}
 }
