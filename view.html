@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>¼³¹® °á°ú º¸±â</title>
+<meta charset="UTF-8">
+<title>ì„¤ë¬¸ ê²°ê³¼ ë³´ê¸°</title>
 <style>
 table{border-collapse: collapse; border-top: 3px solid #168; border-left: 3px solid #168; text-align: center;}
 th{color: #168; background: #f0f6f9;}
@@ -51,13 +51,13 @@ var q3ave = parseFloat(q3sum/q3.length).toFixed(2);
 var q4ave = parseFloat(q4sum/q4.length).toFixed(2);
 var q5ave = parseFloat(q5sum/q5.length).toFixed(2);
 
-document.write("<div class='v_box2'><p>1 : ¸Å¿ì ºÒ¸¸Á·, &nbsp;&nbsp;2 : ºÒ¸¸Á·, &nbsp;&nbsp;3 : º¸Åë, &nbsp;&nbsp;4 : ¸¸Á·, &nbsp;&nbsp;5 : ¸Å¿ì ¸¸Á·</p></div>");
+document.write("<div class='v_box2'><p>1 : ë§¤ìš° ë¶ˆë§Œì¡±, &nbsp;&nbsp;2 : ë¶ˆë§Œì¡±, &nbsp;&nbsp;3 : ë³´í†µ, &nbsp;&nbsp;4 : ë§Œì¡±, &nbsp;&nbsp;5 : ë§¤ìš° ë§Œì¡±</p></div>");
 document.write("<div class='v_box3'><table><tr><th></th>");
-	document.write("<th>½Ã¼³</th>");
-	document.write("<th>µî·Ï±İ</th>");
-	document.write("<th>±³À°°úÁ¤</th>");
-	document.write("<th>¼ºÀûÆò°¡</th>");
-	document.write("<th>ºñ´ë¸é°­ÀÇ</th>");
+	document.write("<th>ì‹œì„¤</th>");
+	document.write("<th>ë“±ë¡ê¸ˆ</th>");
+	document.write("<th>êµìœ¡ê³¼ì •</th>");
+	document.write("<th>ì„±ì í‰ê°€</th>");
+	document.write("<th>ë¹„ëŒ€ë©´ê°•ì˜</th>");
 
 document.write("</tr>");
 for(i=1;i<=q1.length;i++){
@@ -69,7 +69,7 @@ for(i=1;i<=q1.length;i++){
 	document.write("<td>"+q5[i-1]+"</td>");
 	document.write("</tr>");
 }
-document.write("<tr><td><b>Æò±Õ</b></td>");
+document.write("<tr><td><b>í‰ê· </b></td>");
 document.write("<td>"+q1ave+"</td>");
 document.write("<td>"+q2ave+"</td>");
 document.write("<td>"+q3ave+"</td>");
@@ -79,7 +79,7 @@ document.write("</tr>");
 document.write("</table></div>");
 
 </script>
-<button type="button" id="buttonv1" onclick="location.href='graph.html'">±×·¡ÇÁ·Î º¸±â</button>
-<button type="button" id="buttonv2" onclick="location.href='index.html'">µ¹¾Æ°¡±â</button> </div></div>
+<button type="button" id="buttonv1" onclick="location.href='graph.html'">ê·¸ë˜í”„ë¡œ ë³´ê¸°</button>
+<button type="button" id="buttonv2" onclick="location.href='index.html'">ëŒì•„ê°€ê¸°</button> </div></div>
 </body>
 </html>
